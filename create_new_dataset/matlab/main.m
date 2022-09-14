@@ -3,14 +3,14 @@ clc
 close all
 
 %% read camera_intrinsic.json file
-[fx,fy,cx,cy,width,height] = readIntrinsicFile("camera_intrinsic.json");
+[fx,fy,cx,cy,width,height] = readIntrinsicFile("..\input\camera_intrinsic.json");
 
 %% compute FOV
 FOV_h=2*atan2(width,(2*fx))*180/pi;
 FOV_v=2*atan2(height,(2*fy))*180/pi;
 
 %% read point cloud to sample
-pcToSample=pcread("apt_subset_low.ply");
+pcToSample=pcread("..\input\apt_subset_low.ply");
 figure;
 pcshow(pcToSample);
 xlabel("X [m]");
