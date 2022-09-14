@@ -1,0 +1,30 @@
+function [x,y,z,x_angle,y_angle,z_angle,x_angle2,y_angle2,z_angle2] = create_orbital_trajectory(R,n_elem,tot_angle)
+    theta = linspace(0, tot_angle, n_elem + 1);
+    
+    x = -(-R * cos(theta * pi / 180)+R)*cos(30*pi/180);
+    y = R * sin(theta * pi / 180);
+    z = (R * cos(theta * pi / 180)-R)*sin(30*pi/180);
+%     x_angle=zeros(1,length(x));
+%     y_angle=zeros(1,length(x));
+%     z_angle=zeros(1,length(x));
+    z_angle = (2*30)*cos(theta * pi / 180)-(2*30);%;
+%     z_angle = zeros(1,length(x));%(2*30)*cos(theta * pi / 180)-(2*30);
+    y_angle= 2*30*sin(theta * pi / 180);
+    x_angle(1:3) = 90-90*cos(theta(1:3) * pi / 180);
+    x_angle(4:5) = 90+180-90*cos(theta(2:3) * pi / 180);
+%     x_angle(1:181) = 90-90*cos(theta(1:181) * pi / 180);
+%     x_angle(182:361) = 90+180-90*cos(theta(1:180) * pi / 180);
+    x_angle2=zeros(1,length(x));
+    y_angle2=zeros(1,length(x));
+    z_angle2=zeros(1,length(x));
+%     theta=linspace(0,tot_angle,n_elem+1);
+%     x=R.*cos(theta.*pi/180)-R;
+%     y=R.*sin(theta.*pi/180);
+%     z=zeros(1,length(x));
+%     x_angle=-theta;
+%     y_angle=zeros(1,length(x));%40*sin(theta.*pi/180);
+%     z_angle=zeros(1,length(x));%-40*cos(theta.*pi/180);
+%     x_angle2=zeros(1,length(x));
+%     y_angle2=zeros(1,length(x));
+%     z_angle2=-ones(1,length(x))*30;
+end
