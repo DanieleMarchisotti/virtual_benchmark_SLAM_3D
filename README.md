@@ -7,7 +7,7 @@ The code has been used extensively to test SLAM and 3D reconstruction algorithms
 If you use this code for your research, please cite the following paper:
 "Virtual simulation benchmark for the evaluation of simultaneous localization and mapping and 3D reconstruction algorithm uncertainty"
 
-'''
+```
 @software{Lisa_My_Research_Software_2017,
   author = {Lisa, Mona and Bot, Hew},
   doi = {10.5281/zenodo.1234},
@@ -17,4 +17,4 @@ If you use this code for your research, please cite the following paper:
   version = {2.0.4},
   year = {2017}
 }
-'''
+```
