@@ -8,13 +8,13 @@ If you use this code for your research, please cite the following paper:
 "Virtual simulation benchmark for the evaluation of simultaneous localization and mapping and 3D reconstruction algorithm uncertainty"
 
 ```
-@software{Lisa_My_Research_Software_2017,
-  author = {Lisa, Mona and Bot, Hew},
-  doi = {10.5281/zenodo.1234},
-  month = {12},
-  title = {{My Research Software}},
-  url = {https://github.com/github/linguist},
-  version = {2.0.4},
-  year = {2017}
+@article{Marchisotti2021,
+	author = {Marchisotti, Daniele and Zappa, Emanuele},
+  doi = {10.1088/1361-6501/abeccc},
+	title = {Virtual simulation benchmark for the evaluation of simultaneous localization and mapping and 3D reconstruction algorithm uncertainty},
+	year = {2021},
+	journal = {Measurement Science and Technology},
+	volume = {32},
+	number = {9},
 }
 ```
