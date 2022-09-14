@@ -10,7 +10,7 @@ FOV_h=2*atan2(width,(2*fx))*180/pi;
 FOV_v=2*atan2(height,(2*fy))*180/pi;
 
 %% read point cloud to sample
-pcToSample=pcread("..\input\apt_subset_low.ply");
+pcToSample=pcread("apt_subset_low.ply");
 figure;
 pcshow(pcToSample);
 xlabel("X [m]");
@@ -27,22 +27,30 @@ gridStep=0.0001;
 % pcToSample = pcdownsample(pcToSample,'gridAverage',gridStep);
 % pcToSample = pcdenoise(pcToSample,'NumNeighbors',4,'Threshold',0.08);
 %%
-tot_angle=360;
-n_elem_360=[30];
-n_elem=round(tot_angle./(360./n_elem_360));
-R_increment=[0];
-R=0.5;
-n_elem_transl=30;
-n_elem_rot=30;
-transl_dim=2;
-for i=1:length(n_elem)
-    for j=1:length(R_increment)
-        [x_traj{i,j},y_traj{i,j},z_traj{i,j},x_angle_traj{i,j},y_angle_traj{i,j},...
-            z_angle_traj{i,j}] = create_circular_trajectory(...
-            R,n_elem_transl,tot_angle);
-    end
-end
-
+% tot_angle=360;
+n_elem=[20];
+% n_elem=round(tot_angle./(360./n_elem_360));
+% R_increment=[0];
+% R=0.5;
+% n_elem_transl=30;
+% n_elem_rot=30;
+% transl_dim=2;
+% for i=1:length(n_elem)
+%     for j=1:length(R_increment)
+%         [x_traj{i,j},y_traj{i,j},z_traj{i,j},x_angle_traj{i,j},y_angle_traj{i,j},...
+%             z_angle_traj{i,j}] = create_circular_trajectory(...
+%             R,n_elem_transl,tot_angle);
+%     end
+% end
+i = 1;
+j = 1;
+traj = load("ground_truth_trajectory.txt");
+x_traj{i,j} = traj(:,1);
+x_angle_traj{i,j} = traj(:,2);
+y_traj{i,j} = traj(:,3);
+y_angle_traj{i,j} = traj(:,4);
+z_traj{i,j} = traj(:,5);
+z_angle_traj{i,j} = traj(:,6);
 %%
 % center the point cloud into the origin
 D = zeros(size(pcToSample.Location));
@@ -84,11 +92,7 @@ for i=1:length(datasets_list)
 end
 clear pcMain;
 %%
-for i=1:length(n_elem)
-    for j=1:length(R_increment)
-        virtual_scanner_3D(pcPoints_main,pcColors_main,x_traj{i,j},y_traj{i,j},z_traj{i,j},x_angle_traj{i,j},...
-            y_angle_traj{i,j},z_angle_traj{i,j},datasets_folder_list(i)...
-            ,FOV_h,FOV_v,width,height);
-    end
-end
+virtual_scanner_3D(pcPoints_main,pcColors_main,x_traj{i,j},y_traj{i,j},z_traj{i,j},x_angle_traj{i,j},...
+    y_angle_traj{i,j},z_angle_traj{i,j},datasets_folder_list(i)...
+    ,FOV_h,FOV_v,width,height);
 
